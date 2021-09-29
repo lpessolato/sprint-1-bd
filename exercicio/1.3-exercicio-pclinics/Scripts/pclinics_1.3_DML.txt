@@ -1,0 +1,46 @@
+use VET;
+go
+
+insert into CLINICA (endereco)
+values ('rua xokito');
+go
+
+insert into DONO (nome_dono)
+values ('lucas'), ('saulo'), ('pedro');
+
+insert into TIPO (nome_tipo)
+values ('cachorro'), ('gato');
+go
+
+insert into RACA (idTipo,nome_raca)
+values (1,'pit bull'), (2,'siames');
+go
+
+insert into VETERINARIO (idClinica,nome_vet)
+values (1,'joao'), (1,'ale'), (1,'vitu');
+go
+
+insert into PETS (idRaca,idDono,nome_pets)
+values (1,1,'meg'), (2,2,'luna');
+go
+
+insert into ATENDIMENTO (idVeterinario,idPets,data_inicio,data_fim)
+values (1,1,'20/09/2019','25/09/2019'), (2,2,'29/09/2019','05/10/2019');
+go
+
+
+select * from CLINICA
+select * from DONO
+select * from TIPO
+select * from RACA
+select * from VETERINARIO
+select * from PETS
+select * from ATENDIMENTO
+
+
+alter table VETERINARIO 
+add nome_vet varchar(20) not null
+
+update DONO set nome_dono = 'ligia'
+where idDono =3
+
