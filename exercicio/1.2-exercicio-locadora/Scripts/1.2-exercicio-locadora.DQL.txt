@@ -1,0 +1,32 @@
+select * from CLIENTES
+select * from VEICULOS
+select * from MODELO ORDER BY idModelo DESC/ASC
+select * from ALUGUEIS
+
+
+
+
+--listar todos os alugueis mostrando as datas de inicio e fim,
+--o nome do cliente que alugou e o nome do modelo do carro.
+
+select nome, cpf, descricao, placa, data_inicio, data_fim from ALUGUEIS
+inner join CLIENTES
+on CLIENTES.idClientes = ALUGUEIS.idClientes
+inner join VEICULOS
+on VEICULOS.idVeiculo = ALUGUEIS.idVeiculo
+inner join MODELO
+on VEICULOS.idModelo = MODELO.idModelo;
+go
+
+--listar os alugueis de um determinado cliente mostrando seu nome, as datas de inicio
+--e fim e o nome do modelo do carro.
+
+select nome, descricao, data_inicio, data_fim from ALUGUEIS
+inner join CLIENTES
+on CLIENTES.idClientes = ALUGUEIS.idClientes
+inner join VEICULOS
+on VEICULOS.idVeiculo = ALUGUEIS.idVeiculo
+inner join MODELO
+on VEICULOS.idModelo = MODELO.idModelo
+where ALUGUEIS.idClientes = 1;
+go

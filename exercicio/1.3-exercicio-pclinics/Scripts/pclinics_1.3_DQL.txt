@@ -1,0 +1,58 @@
+select * from RACA
+select * from TIPO
+select * from DONO
+select * from PETS
+select * from VETERINARIO
+select * from CLINICA
+select * from ATENDIMENTO
+
+
+--listar todos os veterinario de uma clinica.
+
+
+select nome_vet, CLINICA.idClinica, endereco from VETERINARIO
+left join CLINICA
+on VETERINARIO.idClinica = CLINICA.idClinica;
+go
+
+--listar todas as raças que começam com a letra S
+select nome_raca from RACA
+where nome_raca LIKE 'S%';
+go
+
+
+--listar todos os tipos de pets que terminam com a letra O
+select nome_tipo from TIPO
+where nome_tipo like '%O';
+go
+
+
+
+
+--listar todos os pets mostrando os nomes dos seus donos
+select nome_pets, nome_dono from PETS
+left join DONO
+on PETS.idDono = DONO.idDono;
+go
+
+
+
+--listar todos os atendimentos mostrando o nome do veterinario que
+--atendeu, o nome, a raça e o tipo do pet que foi atendido,
+--o nome do dono do pet e o nome da clinica onde o pet foi atendido. 
+
+select nome_dono, nome_pets, nome_raca, nome_tipo, nome_vet, data_inicio, data_fim, endereco from ATENDIMENTO
+inner join PETS
+on ATENDIMENTO.idPets = PETS.idPets
+inner join VETERINARIO
+on VETERINARIO.idVeterinario = ATENDIMENTO.idVeterinario
+inner join DONO
+on PETS.idDono = DONO.idDono
+inner join RACA
+on RACA.idRaca = PETS.idRaca
+inner join TIPO
+on TIPO.idTipo = RACA.idTipo
+inner join CLINICA
+on CLINICA.idClinica = VETERINARIO.idClinica;
+go
+
