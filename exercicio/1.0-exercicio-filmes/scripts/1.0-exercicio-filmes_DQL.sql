@@ -1,0 +1,29 @@
+
+USE CATALOGO;
+GO
+
+--LEFT JOIN
+
+SELECT idFilme, tituloFilme, nomeGenero FROM FILMES
+LEFT JOIN GENERO
+ON FILMES.idGenero = GENERO.idGenero;
+GO
+
+--RIGHT JOIN
+
+SELECT nomeGenero, tituloFilme FROM FILMES
+RIGHT JOIN GENERO
+ON GENERO.idGenero = FILMES.idGenero;
+GO
+
+--INNER JOIN
+SELECT nomegenero, tituloFilme FROM FILMES
+INNER JOIN GENERO
+ON FILMES.idGenero = GENERO.idGenero;
+GO
+
+--FULL OUTER JOIN
+SELECT nomegenero, tituloFilme FROM FILMES
+FULL OUTER JOIN GENERO
+ON FILMES.idGenero = GENERO.idGenero;
+GO
