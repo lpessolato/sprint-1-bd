@@ -1,0 +1,30 @@
+create database Sp_medical_group;
+go
+
+use Sp_medical_group;
+go
+
+Create table Tipo (
+idTipo tinyint primary key identity (1,1),
+descricao varchar (30) not null,
+);
+go
+
+Create table Usuario (
+idUsuario int primary key identity (1,1),
+idtipo tinyint foreign key references Tipo(idTipo),
+nome varchar (30) not null,
+email varchar (50) not null,
+senha varchar (20) not null,
+);
+go
+
+Create table Clinica (
+idClinica tinyint primary key identity (1,1),
+nome_clinica varchar (20) not null,
+endereco_clinica varchar (20) not null,
+CNPJ char (17) not null unique,
+nome_fantasia varchar (150) not null,
+horario_abertura time not null, 
+horario_fechamento
+razao_social
