@@ -51,8 +51,8 @@ Create table Paciente (
 idPaciente smallint primary key identiny (1,1),
 idUsuario int foreign key references Usuario(idUsuario),
 nome_paciente varchar (100) not null,
-data_nasc 
-telefone 
+data_nasc date not null,
+telefone char (11) not null,
 RG char (10) not null unique,
 CPF char (11) not null unique,
 endereco varchar (100) not null
